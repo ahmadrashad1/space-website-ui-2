@@ -746,8 +746,7 @@ img {
   .hero h1, .hero__copy { width: 100%; }
   .hero h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
 
-  .satellite--scroll-locked,
-  .mission--scroll-locked { min-height: 250vh; }
+  /* Scroll-scrub disabled below — see block at end of this query */
 
   .satellite__content {
     padding: 5rem 1.5rem 2rem; padding-left: 1.5rem; text-align: left;
@@ -772,6 +771,35 @@ img {
   .orbit360__text { align-items: center; }
   .orbit360__copy { max-width: 100%; }
   .orbit360__viewport { aspect-ratio: 4 / 3; }
+
+  /* Satellite / Mission: one screen tall, no extra dark scroll runway; copy always visible */
+  .satellite.satellite--scroll-locked,
+  .mission.mission--scroll-locked {
+    min-height: 100svh;
+    height: auto;
+  }
+
+  .satellite__sticky,
+  .mission__sticky {
+    position: relative;
+    height: auto;
+    min-height: 100svh;
+    overflow: hidden;
+  }
+
+  .satellite__eyebrow,
+  .satellite__copy,
+  .satellite__actions,
+  .satellite__title-line,
+  .mission__eyebrow,
+  .mission__copy,
+  .mission__actions,
+  .mission__title-line {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease;
+  }
 }
 
 /* Tall desktop with limited height */
@@ -788,9 +816,6 @@ img {
   .hero__eyebrow { font-size: 0.75rem; letter-spacing: 0.28em; }
   .hero__copy { font-size: 0.95rem; }
   .hero__actions { flex-direction: column; }
-
-  .satellite--scroll-locked,
-  .mission--scroll-locked { min-height: 220vh; }
 
   .satellite__title { font-size: clamp(1.8rem, 7vw, 3rem); }
   .satellite__eyebrow { font-size: 0.75rem; }
@@ -840,9 +865,6 @@ img {
       linear-gradient(180deg, rgba(2, 5, 11, 0.48) 0%, rgba(2, 5, 11, 0.28) 26%, rgba(2, 5, 11, 0.82) 100%),
       linear-gradient(90deg, rgba(2, 5, 11, 0.8) 0%, rgba(2, 5, 11, 0.3) 48%, rgba(2, 5, 11, 0.86) 100%);
   }
-
-  .satellite--scroll-locked,
-  .mission--scroll-locked { min-height: 200vh; }
 
   .satellite__content { padding: 3.5rem 1rem 1.5rem; }
   .satellite__title { font-size: clamp(1.6rem, 9vw, 2.6rem); }
