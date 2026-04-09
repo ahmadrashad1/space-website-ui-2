@@ -1,7 +1,6 @@
 import Hero from "@/components/Hero";
 import Satellite from "@/components/Satellite";
 import Mission from "@/components/Mission";
-import StackingScroll from "@/components/StackingScroll";
 import SectionReveal from "@/components/SectionReveal";
 import Stats from "@/components/Stats";
 import About from "@/components/About";
@@ -13,7 +12,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <StackingScroll />
       <SectionReveal />
       <Hero />
       <Satellite />
