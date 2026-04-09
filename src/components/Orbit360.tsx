@@ -163,7 +163,7 @@ export default function Orbit360() {
     <section className="orbit360">
       <div className="orbit360__inner">
         <div className="orbit360__text">
-          <p className="orbit360__eyebrow">Astronaut 360° Viewer</p>
+          <p className="orbit360__eyebrow">A surreal experience</p>
           <h2 className="orbit360__title">
             <span className="orbit360__title-line">Scroll over</span>
             <span className="orbit360__title-line">the astronaut</span>
