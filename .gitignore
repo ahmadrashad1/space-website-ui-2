@@ -1,3 +1,10 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
 # Build artifacts — extracted frames not used by the site
 assets/hero/_generated_frames/
 mission-extracted_frames_60fps/
@@ -7,3 +14,17 @@ telescope-extracted_frames_60fps/
 # Unused hero video variants (only v2 is referenced)
 assets/hero/hero-background.mp4
 assets/hero/hero-background.webm
+
+# Old static site files (now in src/)
+index.html
+styles.css
+
+# Original frames folder at root (now in public/)
+/astronaut-360_frames_60fps/
+
+# Original assets folder at root (now in public/)
+/assets/
+
+# Misc
+*.tsbuildinfo
+next-env.d.ts
