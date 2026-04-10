@@ -373,6 +373,10 @@
         var prefersReduced =
           window.matchMedia &&
           window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var isTouchDevice =
+          (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) ||
+          navigator.maxTouchPoints > 0 ||
+          "ontouchstart" in window;
 
         function collectRevealItems() {
           satelliteItems = Array.prototype.slice.call(
@@ -501,7 +505,7 @@
             applyLineReveal(missionItems, revealSteps.mission, "mission__item--visible");
           }
 
-          if (prefersReduced) return;
+          if (prefersReduced || isTouchDevice) return;
 
           cached.forEach(function (data) {
             var scrollPast = scrollY - data.top;
@@ -549,7 +553,7 @@
 
         collectRevealItems();
 
-        if (prefersReduced) {
+        if (prefersReduced || isTouchDevice) {
           revealSteps.satellite = satelliteItems.length;
           revealSteps.mission = missionItems.length;
           panelCompletedAt.satellite = performance.now();
@@ -566,7 +570,7 @@
         window.addEventListener(
           "scroll",
           function () {
-            if (!prefersReduced) {
+            if (!prefersReduced && !isTouchDevice) {
               var scrollY = window.scrollY;
               var satelliteData = getPanelData("satellite");
               var missionData = getPanelData("mission");
@@ -605,7 +609,7 @@
         window.addEventListener(
           "wheel",
           function (event) {
-            if (prefersReduced) return;
+            if (prefersReduced || isTouchDevice) return;
 
             if (event.deltaY <= 0) {
               wheelDeltaAccumulator = 0;
